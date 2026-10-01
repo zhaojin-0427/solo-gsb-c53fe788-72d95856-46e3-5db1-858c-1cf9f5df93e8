@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    image: cloud-gap-mosaic-api:latest
+    container_name: cloud-gap-mosaic-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - mosaic-data:/data
+    environment:
+      MOSAIC_DB_PATH: /data/mosaics.db
+    restart: unless-stopped
+
+volumes:
+  mosaic-data:
